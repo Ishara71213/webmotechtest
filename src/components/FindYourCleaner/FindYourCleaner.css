@@ -1,0 +1,15 @@
+.FindYourCleaner-container{
+    width: 780px;
+    height: 100px;
+    background-color: var(--main-backgroundColor);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 12px;
+}
+.FindYourCleanerInputs{
+    display: flex;
+    align-items: center;
+    
+}

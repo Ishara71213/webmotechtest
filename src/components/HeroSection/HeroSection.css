@@ -1,0 +1,53 @@
+.heroSection-container{
+    position: relative;
+    height: 1000px;
+}
+.heroSection-backgroundImage{
+    height: 1000px; 
+    opacity: 0.85;
+    background: url('../../images/housewife-woking-home-lady-blue-shirt-woman-clean-floor1.png') var(--color-overlay);
+    background-blend-mode: multiply;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+}
+.heroSection-content-container{
+    position:absolute;
+    top: 262px;
+    left: 40px;
+    width: 950px;
+    /* background-color: rgb(171, 163, 152 , 50%); */
+    color: var(--main-backgroundColor);
+}
+.heroSection-content-ratings{
+   display: flex;
+   align-items: center;
+   margin: 10px 0;
+}
+.heroSection-content-ratings .star{
+  padding: 0 2px;
+}
+.heroSection-content-ratings>p{
+    padding: 0 14px;
+    padding-top: 2px;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 30px;
+    letter-spacing: 0.2px;
+}
+.heroSection-content-title{
+    font-size: 82px;
+    font-weight: 700;
+    line-height: 137px;
+}
+.heroSection-content-desc{
+    margin: 12px 0;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 38px;
+    letter-spacing: 0.2px;    
+}
+.heroSection-content-inputs{
+    margin: 50px 0;
+}

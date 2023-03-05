@@ -1,0 +1,32 @@
+.dashboard-container{
+    position: relative;
+}
+.header-container{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+.dashBoardMenu{
+    margin: 50px 80px;
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+}
+.dashBoardMenu p{
+    cursor: pointer;
+    flex-grow: 1;
+    text-align: center;
+    padding: 20px 0;
+    border-radius: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 33px;
+}
+.Select {
+    color: var(--main-backgroundColor);
+    background-color: var(--primary-color) !important; 
+}
+.notSelect{
+    color: var(--textcolor-primary);
+
+}

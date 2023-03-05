@@ -1,0 +1,37 @@
+.btn{
+    cursor: pointer;
+    width: 100%;
+    min-width:max-content;
+    padding: 8px 20px;
+    margin: 10px;
+
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 35px;
+    letter-spacing: 0.7px;
+}
+
+
+.fillPrimary{
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    color: var(--main-backgroundColor);
+}
+
+.outlinePrimary{
+    background: none;
+    border: 2px solid;
+    border-radius: 10px;
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+/* .fullWidth{
+    width: 100%;
+    background-color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 10px;
+    color: var(--main-backgroundColor);
+} */
+
+
