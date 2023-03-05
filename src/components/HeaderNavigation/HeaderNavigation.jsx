@@ -1,7 +1,13 @@
+// css
 import "./HeaderNavigation.css";
+
+// components
 import NavigationMenu from "./navigationMenu";
-import { useState } from "react";
 import { ButtonPrimary } from "../../common/ButtonPrimary/ButtonPrimary";
+import { useState } from "react";
+import { NavLink } from "react-router-dom";
+
+// images
 import logo from "../../images/logo.svg";
 import bell from "../../images/bell.svg";
 import message from "../../images/message.svg";
@@ -28,8 +34,14 @@ export const HeaderNavigation = (props) => {
         <ul className="navigationMenu">
           {NavigationMenu.map((link) => {
             return (
-              <li key={link.id} className="navigationMenu-links">
-                {link.title}
+              <li>
+                <NavLink
+                  to={link.url}
+                  key={link.id}
+                  className="navigationMenu-links"
+                >
+                  {link.title}
+                </NavLink>
               </li>
             );
           })}

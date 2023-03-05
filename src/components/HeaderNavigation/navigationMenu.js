@@ -2,12 +2,12 @@ const NavigationMenu = [
   {
     id: 1,
     title: "How It works",
-    url: "",
+    url: "/",
   },
   {
     id: 2,
     title: "Services",
-    url: "",
+    url: "/dashboard",
   },
   {
     id: 3,

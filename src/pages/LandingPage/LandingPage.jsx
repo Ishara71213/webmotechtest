@@ -1,25 +1,22 @@
 import "./LandingPage.css";
 //components
-import { HeaderNavigation } from "../../components/HeaderNavigation/HeaderNavigation";
+// import { HeaderNavigation } from "../../components/HeaderNavigation/HeaderNavigation";
 import { HeroSection } from "../../components/HeroSection/HeroSection";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
 import { GetStartForm } from "../../components/GetStartForm/GetStartForm";
-import { useState } from "react";
+import { useOutletContext } from "react-router-dom";
+// import { useState } from "react";
 
 export const LandingPage = () => {
-  const [formVisibility, setFormVisibility] = useState(false);
-  const [regFormVisibility, setRegFormVisibility] = useState(false);
+  const [
+    formVisibility,
+    setFormVisibility,
+    regFormVisibility,
+    setRegFormVisibility,
+  ] = useOutletContext();
 
   return (
     <div className="landingPage-container">
-      <div className="header-container">
-        <HeaderNavigation
-          // formStatus={formVisibility}
-          setFormVisibility={setFormVisibility}
-          // regFormStatus={regFormVisibility}
-          setRegFormVisibility={setRegFormVisibility}
-        />
-      </div>
       <HeroSection />
       <div
         className={`loginForm-ContainerHide ${
