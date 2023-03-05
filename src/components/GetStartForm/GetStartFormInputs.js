@@ -11,6 +11,16 @@ export const GetStartFormInputs = [
   },
   {
     id: 2,
+    name: "last_name", // e.trget.name reffers to this
+    type: "text",
+    placeholder: "Please Enter",
+    errorMessage: "*First name Required",
+    required: true,
+    pattern: "^([0-9]*[a-zA-Z]){3,}[0-9]*$",
+    label: "Last Name",
+  },
+  {
+    id: 3,
     name: "email", // e.trget.name reffers to this
     type: "email",
     placeholder: "Email",
@@ -19,7 +29,7 @@ export const GetStartFormInputs = [
     label: "Email",
   },
   {
-    id: 3,
+    id: 4,
     name: "password",
     type: "password",
     placeholder: "Password",
@@ -30,7 +40,7 @@ export const GetStartFormInputs = [
     label: "Password",
   },
   {
-    id: 4,
+    id: 5,
     name: "password_confirmation",
     type: "password",
     placeholder: "Confirm password",

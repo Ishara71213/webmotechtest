@@ -1,12 +1,12 @@
 export const LoginFormInputs = [
   {
     id: 1,
-    name: "userName", // e.trget.name reffers to this
-    type: "text",
-    placeholder: "User name",
-    errorMessage: "*Valid User name Required",
+    name: "email", // e.trget.name reffers to this
+    type: "email",
+    placeholder: "Email",
+    errorMessage: "*Valid email Required",
     required: true,
-    label: "User Name",
+    label: "Email",
   },
   {
     id: 2,
@@ -17,7 +17,7 @@ export const LoginFormInputs = [
       "*Password should be 8-20 characters and contain numbers and letters",
     autoComplete: "on",
     required: true,
-    pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
+    // pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
     label: "Password",
   },
 ];

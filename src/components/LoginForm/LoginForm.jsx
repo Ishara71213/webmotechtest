@@ -3,12 +3,25 @@ import closeBtn from "../../images/closeBtn.svg";
 import { InputField } from "../../common/InputField/InputField";
 import { LoginFormInputs } from "./LoginFormInputs";
 import { ButtonPrimary } from "../../common/ButtonPrimary/ButtonPrimary";
-import { useState } from "react";
+import { useContext, useState } from "react";
+import { useEffect } from "react";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 export const LoginForm = (props) => {
   const [valuesLogin, SetValuesLogin] = useState({
-    userName: "",
+    email: "",
     password: "",
+  });
+
+  const navigate = useNavigate();
+  const { currentUser, dispatch } = useContext(AuthContext);
+
+  useEffect(() => {
+    if (currentUser !== null) {
+      navigate("/dashboard");
+    }
   });
 
   const onChangeLoginHandler = (e) => {
@@ -18,35 +31,50 @@ export const LoginForm = (props) => {
     props.setFormVisibility(false);
   };
 
-  const onClickLoginHandler = () => {};
+  const onClickLoginHandler = (e) => {
+    e.preventDefault();
+
+    axios
+      .post("https://backend.webmotech.com/api/user/login", valuesLogin)
+      .then((resp) => {
+        dispatch({ type: "LOGIN", payload: resp.data });
+        console.log(resp.data);
+        onClickCloseLoginFormHandler();
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className="loginForm-Container">
-      <div className="loginForm-closeBtn-container">
-        <img
-          src={closeBtn}
-          alt="close button"
-          height={20}
-          onClick={onClickCloseLoginFormHandler}
-        />
-      </div>
       <div className="loginForm-wrapper">
-        <div className="loginForm-title-container">
-          <h1 className="loginForm-title">Log in</h1>
-        </div>
-        {LoginFormInputs.map((input) => (
-          <InputField
-            key={input.id}
-            {...input}
-            value={valuesLogin[input.name]}
-            onChangeInputHandler={onChangeLoginHandler}
+        <div className="loginForm-closeBtn-container">
+          <img
+            src={closeBtn}
+            alt="close button"
+            height={20}
+            onClick={onClickCloseLoginFormHandler}
           />
-        ))}
-        <div className="buttonContainer">
-          <ButtonPrimary class="fillPrimary" onClick={onClickLoginHandler}>
-            Login
-          </ButtonPrimary>
         </div>
+        <form onSubmit={onClickLoginHandler}>
+          <div className="loginFormInputs">
+            <div className="loginForm-title-container">
+              <h1 className="loginForm-title">Log in</h1>
+            </div>
+            {LoginFormInputs.map((input) => (
+              <InputField
+                key={input.id}
+                {...input}
+                value={valuesLogin[input.name]}
+                onChangeInputHandler={onChangeLoginHandler}
+              />
+            ))}
+            <div className="buttonContainer">
+              <ButtonPrimary class="fillPrimary" type="submit">
+                Login
+              </ButtonPrimary>
+            </div>
+          </div>
+        </form>
       </div>
     </div>
   );

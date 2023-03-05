@@ -1,12 +1,11 @@
 .GetStartForm-Container{
-    width:750px;
-    min-width: 610px;
-    /* height: 590px; */
+    width:100%;
+    /* min-width: 610px; */
+    height: 100vh;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
     background-color: var(--main-backgroundColor);
  
 }
@@ -14,7 +13,8 @@
     display: flex;
     justify-content: right;
     cursor: pointer;
-    margin: 30px;
+    margin: 70px;
+    margin-bottom: 60px;
 }
 .GetStartForm-title-container{
     margin: 30px auto;
@@ -28,14 +28,89 @@
 
 .GetStartForm-wrapper{
     margin: 0 auto;
-    width: 610px;
+    width: 850px;
     display: grid;  
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr ;
+    /* grid-template-rows: 3fr; */
     gap: 10px;
     /* align-items: center; */
-
 }
+.GetStartForm-wrapper .inputField-container{
+    height: 110px;
+}
+.email{
+    grid-column: auto/span 2;
+}
+.password{
+    grid-column: auto/span 2;
+}
+.password_confirmation{
+    grid-column: auto/span 2;
+}
+
 .buttonContainer{
     width: 195px;
     margin: 30px auto;
 }
+@media only screen and (max-width: 920px) {
+    .GetStartForm-wrapper{
+        margin: 0 auto;
+        width: 550px;
+        display: grid;  
+        grid-template-columns: 1fr 1fr  ;
+        grid-template-rows: repeat(1fr,3);
+        gap: 10px;
+        /* align-items: center; */
+    }
+    .GetStartForm-closeBtn-container{
+        
+        margin-bottom: 0px;
+        margin-top: 50px;
+        margin-right: 40px;
+    }
+    .password{
+        grid-column: auto/span 1;
+    }
+    .password_confirmation{
+        grid-column: auto/span 1;
+    }
+
+   
+  
+  }
+  @media only screen and (max-width: 920px) {
+    .GetStartForm-wrapper{
+        margin: 0 auto;
+        width: 53   0px;
+        display: grid;  
+        grid-template-columns: 1fr 1fr  ;
+        grid-template-rows: repeat(1fr,3);
+        gap: 10px;
+        /* align-items: center; */
+    }
+    .GetStartForm-closeBtn-container{
+        
+        margin-bottom: 0px;
+        margin-top: 50px;
+        margin-right: 40px;
+    }
+  }
+  @media only screen and (max-width: 560px) {
+    .GetStartForm-wrapper{
+        margin: 0 auto;
+        width: 350px;
+        display: flex;  
+        flex-direction: column;
+        /* align-items: center; */
+    }
+    .GetStartForm-closeBtn-container{
+        
+        margin-bottom: 0px;
+        margin-top: 10px;
+        margin-right: 40px;
+    }
+    .buttonContainer{
+        width: 340px;
+        margin-right: 45px;
+    }
+  }

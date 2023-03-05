@@ -1,5 +1,6 @@
 .dashboard-container{
     position: relative;
+
 }
 
 .dashBoardMenu{
@@ -9,10 +10,11 @@
     flex-grow: 1;
 }
 .dashBoardMenu p{
+    
     cursor: pointer;
     flex-grow: 1;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 20px;
     border-radius: 5px;
     font-size: 18px;
     font-weight: 500;
@@ -26,3 +28,16 @@
     color: var(--textcolor-primary);
 
 }
+
+@media only screen and (max-width: 850px) {
+    .dashboard-container{
+        position: relative;
+        display: flex;
+       
+    }
+    
+    .dashBoardMenu{
+        display: inline-block;
+        
+    }
+  }

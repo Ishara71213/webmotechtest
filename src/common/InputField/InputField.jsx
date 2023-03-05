@@ -25,7 +25,7 @@ export const InputField = (props) => {
         onChange={onChangeInputHandler}
         onBlur={handleFocus} //to toggle on of error msg
         onFocus={() => {
-          inputProps.name === "confirmpassword" && setFocus(true);
+          inputProps.name === "password_confirmation" && setFocus(true);
         }}
         focused={focused.toString()}
       />

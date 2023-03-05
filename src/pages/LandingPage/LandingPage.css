@@ -8,11 +8,10 @@
     position:fixed;
     z-index: 20;
     top: -1500px;
-    left: 22%; 
+    /* left: 22%;  */
 }
 .loginForm-ContainerVisible{
-    top: 110px;
-    left: 22%; 
+    top: 0px;
     transition: 0.4s ease-out;
 }
 .GetStartForm-ContainerHide{
@@ -20,11 +19,12 @@
     /* display: flex; */
     position:fixed;
     z-index: 20;
-    top: -900px;
-    left: 22%; 
+    top: -2000px;
+    /* left: 22%;  */
 }
 .GetStartForm-ContainerVisible{
-    top: 110px;
-    left: 22%; 
-    transition: 0.4s ease-out;
+    z-index: 200;
+    top: 0px;
+    /* left: 22%;  */
+    transition: 0.45s ease-out;
 }

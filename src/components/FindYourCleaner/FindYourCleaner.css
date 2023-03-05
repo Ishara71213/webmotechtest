@@ -1,4 +1,5 @@
 .FindYourCleaner-container{
+    
     width: 780px;
     height: 100px;
     background-color: var(--main-backgroundColor);
@@ -9,7 +10,83 @@
     padding: 12px;
 }
 .FindYourCleanerInputs{
+   
     display: flex;
     align-items: center;
     
 }
+.findInputWrapper{
+    position: relative;
+}
+.inputFieldIcon{
+    position: absolute;
+    top: 27px;
+    left: 30px;
+}
+@media only screen and (max-width: 1100px) {
+    .FindYourCleaner-container{
+        height: 200px;
+        width: 550px;
+    }
+    .FindYourCleanerInputs{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-row: 1fr 1fr;  
+    }
+    .findBtnWrapper{
+        width: 510px;
+        grid-column: auto/span 2;
+    }
+  }
+  @media only screen and (max-width: 450px) {
+    .FindYourCleaner-container{
+        height: 300px;
+        width: 300px;
+        /* padding: 10px; */
+    }
+    .FindYourCleanerInputs{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;  
+    }
+    .findBtnWrapper{
+        width: 260px;
+        grid-column: auto/span 1;
+    }
+  }
+   @media only screen and (max-width: 620px) {
+    .FindYourCleaner-container{
+        height: 200px;
+        width: 480px;
+        /* padding: 10px; */
+    }
+    .FindYourCleanerInputs{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr ;  
+    }
+    .findBtnWrapper{
+        width: 440px;
+        grid-column: auto/span 2;
+    }
+  }
+  @media only screen and (max-width: 540px) {
+    .FindYourCleaner-container{
+        height: 300px;
+        width: 300px;
+        /* padding: 10px; */
+    }
+    .FindYourCleanerInputs{
+        display: grid;
+        gap: 10px;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr 1fr;  
+    }
+    .findBtnWrapper{
+        width: 260px;
+        grid-column: auto/span 1;
+    }
+  }

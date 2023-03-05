@@ -1,4 +1,12 @@
 .loginForm-Container{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ /* background-color: var(--main-backgroundColor); */
+}
+.loginForm-wrapper{
     width:750px;
     min-width: 500px;
     /* height: 550px; */
@@ -8,14 +16,15 @@
     flex-direction: column;
     justify-content: center;
     background-color: var(--main-backgroundColor);
- 
+    margin-top: 70px;
 }
 
 .loginForm-closeBtn-container{
     display: flex;
     justify-content: right;
     cursor: pointer;
-    margin: 30px;
+    padding: 30px;
+    padding-bottom: 15px;
 }
 .loginForm-title-container{
     margin: 30px auto;
@@ -26,16 +35,55 @@
     line-height: 77px;
     color: var(--primary-color);
 }
-.loginForm-wrapper{
+.loginFormInputs{
     margin: 0 auto;
     width: 480px;
     display: flex;  
     flex-direction: column;
+    justify-content: space-between;
     /* align-items: center; */
 
 }
 .buttonContainer{
     width: 195px;
-    margin: 30px auto;
-    /* margin-top: 30px; */
+    padding-bottom: 25px;
 }
+@media only screen and (max-width: 800px) {
+   
+  
+    .loginForm-wrapper{
+        margin: 0;
+        width:100vw;   
+        height: 100vh;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .loginForm-closeBtn-container{
+        padding-bottom: 100px;
+        padding-right: 40px;
+    }
+  
+  }
+
+  @media only screen and (max-width: 530px) {
+   
+  
+    .loginForm-wrapper{
+        margin: 0;
+        width:100vw;   
+        height: 100vh;
+        box-shadow: none;
+        border-radius: 0;
+    }
+    .loginForm-closeBtn-container{
+        padding-bottom: 100px;
+        padding-right: 60px;
+    }
+    
+    .loginFormInputs{
+        margin: 0 auto;
+        width: 320px;
+    
+    }
+  
+  }

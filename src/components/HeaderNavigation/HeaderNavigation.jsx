@@ -4,17 +4,34 @@ import "./HeaderNavigation.css";
 // components
 import NavigationMenu from "./navigationMenu";
 import { ButtonPrimary } from "../../common/ButtonPrimary/ButtonPrimary";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
+
+// contextApi
+import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 // images
 import logo from "../../images/logo.svg";
 import bell from "../../images/bell.svg";
 import message from "../../images/message.svg";
 import dropDown from "../../images/dropDown.svg";
+import menuIcon from "../../images/menuIcon.svg";
+import closeBtn from "../../images/closeBtn.svg";
 
 export const HeaderNavigation = (props) => {
   const [logedInStatus, setLogedInStatus] = useState(false);
+  const [SideNavToggle, setSideNavToggle] = useState(false);
+
+  let { currentUser } = useContext(AuthContext);
+
+  const first_name = currentUser?.data.user.first_name;
+
+  useEffect(() => {
+    if (currentUser !== null) {
+      setLogedInStatus("true");
+      console.log("now use");
+    }
+  }, [currentUser]);
 
   const onclickHandlerLogin = () => {
     props.setFormVisibility(true);
@@ -24,27 +41,51 @@ export const HeaderNavigation = (props) => {
   const onclickHandlerReg = () => {
     props.setRegFormVisibility(true);
   };
+  const onclickSideNavOpen = () => {
+    setSideNavToggle(true);
+  };
+  const onclickSideNavClose = () => {
+    setSideNavToggle(false);
+  };
+  const onclickLogout = () => {
+    currentUser = null;
+    console.log(currentUser);
+    localStorage.removeItem("user");
+    window.location.reload(false);
+    console.log("logout");
+  };
 
   return (
     <div className="container">
       <div className="logo-container">
         <img src={logo} className="logo" alt="logo" height={40} />
       </div>
-      <nav className="navigationMenu-container">
+      <div className="menuIcon" onClick={onclickSideNavOpen}>
+        <img src={menuIcon} className="logo" alt="logo" height={40} />
+      </div>
+      <nav
+        className={`navigationMenu-container ${SideNavToggle && "openSideNav"}`}
+      >
         <ul className="navigationMenu">
           {NavigationMenu.map((link) => {
             return (
-              <li>
-                <NavLink
-                  to={link.url}
-                  key={link.id}
-                  className="navigationMenu-links"
-                >
-                  {link.title}
-                </NavLink>
-              </li>
+              <NavLink
+                key={link.id}
+                to={link.url}
+                className="navigationMenu-links"
+              >
+                {link.title}
+              </NavLink>
             );
           })}
+          <div className="sideNav-closeBtn" onClick={onclickSideNavClose}>
+            <img
+              src={closeBtn}
+              className="closeBtn"
+              alt="Close Button"
+              height={25}
+            />
+          </div>
         </ul>
       </nav>
 
@@ -56,9 +97,10 @@ export const HeaderNavigation = (props) => {
             className="icons"
             alt="message button"
             height={26}
+            onClick={onclickLogout}
           />
           <div className="profileImgWrapper"></div>
-          <div className="userName">name</div>
+          <div className="userName">{first_name}</div>
           <img
             src={dropDown}
             className="iconDropdown"

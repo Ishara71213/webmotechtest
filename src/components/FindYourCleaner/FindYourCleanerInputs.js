@@ -4,8 +4,8 @@ export const FindYourCleanerInputs = [
     name: "postalCode", // e.trget.name reffers to this
     type: "text",
     placeholder: "Enter your postalcode",
-    errorMessage: "*postalcode Required",
-    required: true,
+    // errorMessage: "*postalcode Required",
+    // required: true,
     // label: "Postal Code",
   },
   {
@@ -13,8 +13,8 @@ export const FindYourCleanerInputs = [
     name: "date", // e.trget.name reffers to this
     type: "text",
     placeholder: "Select a date",
-    errorMessage: "*Date Required",
-    required: true,
+    // errorMessage: "*Date Required",
+    // required: true,
     // label: "Date",
   },
 ];
