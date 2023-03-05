@@ -1,4 +1,5 @@
 .loginForm-Container{
+
     width: 100%;
     height: 100vh;
     display: flex;
@@ -44,9 +45,16 @@
     /* align-items: center; */
 
 }
-.buttonContainer{
+.loginError{
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    color: var( --color-red);
+}
+.buttonContainerLogin{
     width: 195px;
-    padding-bottom: 25px;
+    margin: 25px auto;
+    padding-bottom: 30px;   
 }
 @media only screen and (max-width: 800px) {
    

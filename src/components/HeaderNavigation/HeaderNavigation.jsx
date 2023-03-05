@@ -29,7 +29,6 @@ export const HeaderNavigation = (props) => {
   useEffect(() => {
     if (currentUser !== null) {
       setLogedInStatus("true");
-      console.log("now use");
     }
   }, [currentUser]);
 
@@ -49,7 +48,7 @@ export const HeaderNavigation = (props) => {
   };
   const onclickLogout = () => {
     currentUser = null;
-    console.log(currentUser);
+    // console.log(currentUser);
     localStorage.removeItem("user");
     window.location.reload(false);
     console.log("logout");

@@ -1,4 +1,5 @@
 import "./HeroSection.css";
+//components
 import starFill from "../../images/starFill.svg";
 import { FindYourCleaner } from "../FindYourCleaner/FindYourCleaner";
 

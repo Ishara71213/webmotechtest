@@ -1,10 +1,14 @@
 import "./FindYourCleaner.css";
-import { useState } from "react";
+//component
 import { FindYourCleanerInputs } from "./FindYourCleanerInputs";
 import { InputField } from "../../common/InputField/InputField";
 import { ButtonPrimary } from "../../common/ButtonPrimary/ButtonPrimary";
+
+//images
 import postalCode from "../../images/search.svg";
 import calender from "../../images/calender.svg";
+//hooks
+import { useState } from "react";
 
 export const FindYourCleaner = () => {
   const [searchField, setSearchField] = useState({

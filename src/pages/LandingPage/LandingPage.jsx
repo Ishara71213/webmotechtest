@@ -1,11 +1,10 @@
 import "./LandingPage.css";
 //components
-// import { HeaderNavigation } from "../../components/HeaderNavigation/HeaderNavigation";
 import { HeroSection } from "../../components/HeroSection/HeroSection";
 import { LoginForm } from "../../components/LoginForm/LoginForm";
 import { GetStartForm } from "../../components/GetStartForm/GetStartForm";
+//hooks
 import { useOutletContext } from "react-router-dom";
-// import { useState } from "react";
 
 export const LandingPage = () => {
   const [

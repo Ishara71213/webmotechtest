@@ -47,7 +47,12 @@
 .password_confirmation{
     grid-column: auto/span 2;
 }
-
+.signUpError{
+    margin-top: 20px;
+    font-size: 14px;
+    text-align: center;
+    color: var( --color-red);
+}
 .buttonContainer{
     width: 195px;
     margin: 30px auto;

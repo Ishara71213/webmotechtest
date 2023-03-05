@@ -1,19 +1,27 @@
 import "./LoginForm.css";
+
+//components
+import loading from "../../images/loading.webp";
 import closeBtn from "../../images/closeBtn.svg";
 import { InputField } from "../../common/InputField/InputField";
 import { LoginFormInputs } from "./LoginFormInputs";
 import { ButtonPrimary } from "../../common/ButtonPrimary/ButtonPrimary";
-import { useContext, useState } from "react";
-import { useEffect } from "react";
-import { AuthContext } from "../../context/AuthContext/AuthContext";
+
+//hooks & libraries
+import { useContext, useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+//context
+import { AuthContext } from "../../context/AuthContext/AuthContext";
 
 export const LoginForm = (props) => {
   const [valuesLogin, SetValuesLogin] = useState({
     email: "",
     password: "",
   });
+
+  const [loginClickedLoad, setloginClickedLoad] = useState(false);
+  const [loginError, setLoginError] = useState(false);
 
   const navigate = useNavigate();
   const { currentUser, dispatch } = useContext(AuthContext);
@@ -33,7 +41,8 @@ export const LoginForm = (props) => {
 
   const onClickLoginHandler = (e) => {
     e.preventDefault();
-
+    setloginClickedLoad(true);
+    setLoginError(false);
     axios
       .post("https://backend.webmotech.com/api/user/login", valuesLogin)
       .then((resp) => {
@@ -41,11 +50,27 @@ export const LoginForm = (props) => {
         console.log(resp.data);
         onClickCloseLoginFormHandler();
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        setLoginError(true);
+        setloginClickedLoad(false);
+        // console.log(err);
+      });
   };
 
   return (
     <div className="loginForm-Container">
+      {/* loadding styles inside app.css file */}
+      {loginClickedLoad && (
+        <div className="loaderContainer">
+          <div className="spinnerLoder">
+            <div className="loadingIcon">
+              <img src={loading} alt="loading icon" width={40} />
+            </div>
+            <div className="loadingIconText">tying to Login...</div>
+          </div>
+        </div>
+      )}
+
       <div className="loginForm-wrapper">
         <div className="loginForm-closeBtn-container">
           <img
@@ -68,7 +93,10 @@ export const LoginForm = (props) => {
                 onChangeInputHandler={onChangeLoginHandler}
               />
             ))}
-            <div className="buttonContainer">
+            {loginError && (
+              <div className="loginError">Invalid User name or password</div>
+            )}
+            <div className="buttonContainerLogin">
               <ButtonPrimary class="fillPrimary" type="submit">
                 Login
               </ButtonPrimary>
