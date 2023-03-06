@@ -3,6 +3,7 @@
 }
 
 .loginForm-ContainerHide{
+    display: none;
     width: 100vw;
     /* display: flex; */
     position:fixed;
@@ -11,6 +12,7 @@
     /* left: 22%;  */
 }
 .loginForm-ContainerVisible{
+    display: block;
     top: 0px;
     transition: 0.4s ease-out;
 }
