@@ -4,9 +4,11 @@ import "./HeaderNavigation.css";
 // components
 import NavigationMenu from "./navigationMenu";
 import { ButtonPrimary } from "../../common/ButtonPrimary/ButtonPrimary";
+
+//hooks and libraries
 import { useState, useContext, useEffect } from "react";
 import { NavLink } from "react-router-dom";
-
+import axios from "axios";
 // contextApi
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 
@@ -23,14 +25,42 @@ export const HeaderNavigation = (props) => {
   const [SideNavToggle, setSideNavToggle] = useState(false);
 
   let { currentUser } = useContext(AuthContext);
+  const token = currentUser?.data.token;
 
-  const first_name = currentUser?.data.user.first_name;
+  const [firstName, setFirstName] = useState();
+  //getting the name using context api and local storage stored data when login or signup (much faster)
+  // const firstName = currentUser?.data.user.first_name;
 
+  // console.log(token);
   useEffect(() => {
     if (currentUser !== null) {
       setLogedInStatus("true");
     }
   }, [currentUser]);
+
+  useEffect(() => {
+    if (token) {
+      // using fetch
+      // fetch("https://backend.webmotech.com/api/user/get-data", {
+      //   method: "get",
+      //   headers: { Authorization: `Bearer ${token}` },
+      // })
+      //   .then((res) => res.json())
+      //   .then((data) => {
+      //     setFirstName(data.data["first_name"]);
+      //   })
+      //   .catch((err) => {
+      //     console.log("Authorization error", err);
+      //   });
+      // using axios
+      axios
+        .get("https://backend.webmotech.com/api/user/get-data", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => setFirstName(res.data.data["first_name"]))
+        .catch((err) => console.log("Authorization error", err));
+    }
+  }, [token]);
 
   const onclickHandlerLogin = () => {
     props.setFormVisibility(true);
@@ -99,7 +129,7 @@ export const HeaderNavigation = (props) => {
             onClick={onclickLogout}
           />
           <div className="profileImgWrapper"></div>
-          <div className="userName">{first_name}</div>
+          <div className="userName">{firstName}</div>
           <img
             src={dropDown}
             className="iconDropdown"

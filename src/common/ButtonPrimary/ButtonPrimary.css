@@ -17,14 +17,30 @@
     border: 2px solid var(--primary-color);
     border-radius: 10px;
     color: var(--main-backgroundColor);
+    transition: 0.2s ease-in-out;
+
+}
+.fillPrimary:hover{
+    border: 2px solid var(--button-hover);
+    /* color:var(--primary-color); */
+    background-color: var(--button-hover);
+    /* background: none; */
+    transition: 0.2s ease-in-out;
 }
 
 .outlinePrimary{
     background: none;
-    border: 2px solid;
+    border: 2px solid var(--primary-color);
     border-radius: 10px;
-    border-color: var(--primary-color);
     color: var(--primary-color);
+    transition: 0.2s ease-in-out;
+
+}
+.outlinePrimary:hover{
+    background-color: var(--primary-color);
+    color:var(--main-backgroundColor);
+    transition: 0.2s ease-in-out;
+
 }
 /* .fullWidth{
     width: 100%;

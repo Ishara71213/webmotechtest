@@ -4,13 +4,15 @@
 :root{
   --main-backgroundColor:#fff;
   --primary-color:#3D7199;
+  
   /* text colors */
   --textcolor-primary:#414242;
   --textcolor-secondary:#8A888D;
   --textcolor-light:#C0C8CE;
   --textcolor-medium:#605E5E;
   --textcolor-highlight:#3D7199;
-  
+  /* button colors */
+  --button-hover:#275a81;
   /* overlay colors */
   --color-overlay:#414242A1;
   /* other colors */

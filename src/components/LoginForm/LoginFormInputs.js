@@ -13,8 +13,7 @@ export const LoginFormInputs = [
     name: "password",
     type: "password",
     placeholder: "Password",
-    // errorMessage:
-    //   "*Password should be 8-20 characters and contain numbers and letters",
+    errorMessage: "*Password Required",
     autoComplete: "on",
     required: true,
     // pattern: "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}$",
